@@ -638,4 +638,4 @@ INSERT INTO t_person_type (id, type_code, type_name, created_by, created_at, is_
 	(uuid_generate_v4(), 'EMP', 'Employee', 1, now(), true, 0);
 
 INSERT INTO t_candidate_profile (id, salutation, fullname, gender, experience, expected_salary, phone_number, mobile_number, nik, birth_date, birth_place, marital_status_id, religion_id, person_type_id, file_id, created_by, created_at, is_active, ver) VALUES 
-	(uuid_generate_v4(), 'Mr.', 'Ganjar Pranowo', 'Male', '1', '5000000', '08174563256', '08126354856', '35153135151515', now(), 'Jakarta', 1, 1, 1, 1, 1, now(), true, 0);
+	(uuid_generate_v4(), 'Mr.', 'Ganjar Sutrisno', 'Male', '1', '5000000', '08174563256', '08126354856', '35153135151515', now(), 'Jakarta', 1, 1, 1, 1, 1, now(), true, 0);
