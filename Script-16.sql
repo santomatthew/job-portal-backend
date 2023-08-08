@@ -906,10 +906,6 @@ values
 insert into t_profile (id,full_name,photo_id,phone_number,address,person_type_id,created_by,created_at,updated_by,updated_at,is_active,ver)
 values 
 (uuid_generate_v4(),'ADMIN','93744fdd-8967-46fc-bb45-7527a189d864','10298301','BEKASI','bcc4d4fa-5e2a-4c7f-bb82-68dd0d4c5052',1,NOW(),1,NOW(),TRUE,1);
-select * from t_file tp ;
-select * from t_person_type tpt ;
-select * from t_profile tp ;
-select * from t_role tr ;
 insert into t_user (id,user_email,user_password,profile_id,role_id,created_by,created_at,updated_by,updated_at,is_active,ver)
 VALUES
 ( uuid_generate_v4(),'ADMIN@GMAIL.COM','123','98cf70ef-0ffe-4be1-8407-0c8840eab6e7','44c40380-4f30-4fbd-8f78-9e1b43c68334',1,NOW(),1,NOW(),TRUE,1);
