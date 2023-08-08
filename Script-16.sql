@@ -494,6 +494,7 @@ FOREIGN KEY(person_type_id)
 REFERENCES t_person_type(id);
 
 
+
 CREATE TABLE t_user(
 	id varchar(36) NOT NULL,
 	user_email varchar(50) NOT NULL,
@@ -538,7 +539,8 @@ ALTER TABLE t_company ADD CONSTRAINT t_company_pk PRIMARY KEY(id);
 ALTER TABLE t_company ADD CONSTRAINT t_company_picture_fk 
 FOREIGN KEY(photo_id)
 REFERENCES t_file(id);
-
+ALTER TABLE t_company ADD CONSTRAINT t_company_bk
+UNIQUE (company_code)
 
 
 
@@ -565,6 +567,9 @@ CREATE TABLE t_job(
 	ver int NOT NULL
 );
 ALTER TABLE t_job ADD CONSTRAINT t_job_pk PRIMARY KEY(id);
+
+ALTER TABLE t_job ADD CONSTRAINT t_job_bk
+UNIQUE (job_code);
 
 ALTER TABLE t_job ADD CONSTRAINT t_company_fk 
 FOREIGN KEY(company_id)
@@ -598,7 +603,8 @@ CREATE TABLE t_hiring_status(
 	ver int NOT NULL
 );
 ALTER TABLE t_hiring_status ADD CONSTRAINT t_hiring_status_pk PRIMARY KEY(id);
-
+ALTER TABLE t_hiring_status ADD CONSTRAINT t_hiring_status_bk
+UNIQUE(status_code);
 CREATE TABLE t_applicant(
 	id varchar(36) NOT NULL,
 	applicant_code varchar(5) NOT NULL,
@@ -620,7 +626,8 @@ REFERENCES t_job(id);
 ALTER TABLE t_applicant ADD CONSTRAINT t_hiring_status_fk 
 FOREIGN KEY(status_id)
 REFERENCES t_hiring_status(id);
-
+ALTER TABLE t_applicant ADD CONSTRAINT t_applicant_bk
+UNIQUE (applicant_code);
 
 
 
@@ -628,7 +635,6 @@ CREATE TABLE t_question(
 	id varchar(36) NOT NULL,
 	question_code varchar(5) NOT NULL,
 	question_detail text NOT NULL,
-
 	created_by int NOT NULL,
 	created_at timestamp NOT NULL,
 	updated_by int,
@@ -637,6 +643,7 @@ CREATE TABLE t_question(
 	ver int NOT NULL
 );
 ALTER TABLE t_question ADD CONSTRAINT t_question_pk PRIMARY KEY(id);
+ALTER TABLE t_question ADD CONSTRAINT t_question_bk UNIQUE(question_code);
 
 
 
@@ -797,6 +804,7 @@ CREATE TABLE t_benefit(
 );
 
 ALTER TABLE t_benefit ADD CONSTRAINT t_benefit_pk PRIMARY KEY(id);
+ALTER TABLE t_benefit ADD CONSTRAINT t_benefit_bk UNIQUE(benefit_code);
 
 CREATE TABLE t_owned_benefit(
 	id varchar(36) NOT NULL,
